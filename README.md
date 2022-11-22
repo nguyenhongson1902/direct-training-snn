@@ -19,14 +19,11 @@ This project is a combination of a novel training method named Spatio-Temporal B
 * Customized Basic Block
     * Acording to the idea from the paper $3$, we're going to use this customized Basic Block (on the right in the image below) when training Deep Spiking Neural Networks
 
-<p align="center"><img src = "images/basic_block_architecture.png" width = 50%></p>
+<p align="center"><img src = "images/basic_block_architecture.png" width = 70%></p>
 <p align="center"><i>The customized Basic Block for SNNs.</i></p>
 
 * tdBN normalizes the pre-activations to $N(0, V^{2}_{th})$ so it helps reduce the internal covariate shift of $V_{th}$ and pre-activations.
-* Approximation derivative ($a$ is the pead width of the curve)
-
-$$h(u)=\frac{1}{2a}sign(|u|<a)$$
-
+* Approximation derivative is a rectangular function
 * Deep Spiking Neural Network Structure
 <div style="margin-left: auto;
             margin-right: auto;
@@ -88,17 +85,17 @@ The average pool layer takes an average over channels axis, see the image below:
 * In this project, I just show an example experiment of training the customized $19$-layer ResNet (shown via tensorboard). With the hyperparameters set up in file `helper_layers.py` and by setting `epochs=11` and using Learning Rate Adjustment strategy (i.e. reducing the learning rate after an amount of epochs, in this case I picked $10$ for that amount). The training time is around $2$ hours.
 * If you haven't installed `tensorboard`, type this command `pip install -U tensorboard` to install it. To run tensorboard, type this command in the terminal: `tensorboard --logdir runs/<folder including events file>`. By default, tensorboard will automatically write event files to a directory named `runs` in the current working directory.
 
-<p align="center"><img src = "images/tensorboard_gui.png" width = 80%></p>
+<p align="center"><img src = "images/tensorboard_gui.png" width = 100%></p>
 <p align="center"><i>TensorBoard GUI.</i></p>
 
 * The image below is the test loss and accuracy after finishing $11$ epochs:
 
-<p align="center"><img src = "images/training_results_11_epochs.png" width = 90%></p>
+<p align="center"><img src = "images/training_results_11_epochs.png" width = 100%></p>
 <p align="center"><i>Test loss and test accuracy at the end of the training process.</i></p>
 
 * Here is the firing rates when inferring a test sample. Run command `python test.py` to see the plot: 
 
-<p align="center"><img src = "images/firing_rates.png" width = 50%></p>
+<p align="center"><img src = "images/firing_rates.png" width = 70%></p>
 <p align="center"><i>Average firing rates over neuron of each layer.</i></p>
 
 * Some comments:
