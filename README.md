@@ -24,7 +24,9 @@ This project is a combination of a novel training method named Spatio-Temporal B
 
 * tdBN normalizes the pre-activations to $N(0, V^{2}_{th})$ so it helps reduce the internal covariate shift of $V_{th}$ and pre-activations.
 * Approximation derivative ($a$ is the pead width of the curve)
+
 $$h(u)=\frac{1}{2a}sign(|u|<a)$$
+
 * Deep Spiking Neural Network Structure
 <div style="margin-left: auto;
             margin-right: auto;
