@@ -22,7 +22,7 @@ This project is a combination of a novel training method named Spatio-Temporal B
 <p align="center"><img src = "images/basic_block_architecture.png" width = 70%></p>
 <p align="center"><i>The customized Basic Block for SNNs.</i></p>
 
-* tdBN normalizes the pre-activations to $N(0, V^{2}_{th})$
+* tdBN normalizes the pre-activations to $N(0, V^{2}_{th})$, see more in paper $3$
 * Approximation derivative is a rectangular function
 * Deep Spiking Neural Network Structure
 <div style="margin-left: auto;
