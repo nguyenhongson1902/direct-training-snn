@@ -1,5 +1,5 @@
 # A Direct Training Method for Deep Spiking Neural Networks
-This project is a combination of a novel training method named Spatio-Temporal Backpropagation (STBP) and a Batch Normalization technique called threshold-dependent Batch Normalization (tdBN) together to make the training for Deep Spiking Neural Networks possible. The applied architecture is inspired by the $18$-layer ResNet and people sometimes call that Deep Spiking Residual Network (DSRN). Instead of using the standard Batch Normalization and normal Basic Blocks in ResNet, it uses tdBN and the customized Basic Block. A new spiking activation function with gradient approximation are also designed to describe brain-like behaviors and to make intermediate derivatives differentiable. With the usage of tdBN, the inappropriate firing rates from each neuron and vanishing or exploding gradients are addressed. Moreover, it also helps to reduce the [internal covariate shift](https://arxiv.org/abs/1502.03167) during training process, thus balancing the threshold and pre-synaptic inputs. A magnificient accuracy with [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset ($98.67%$) is recorded after just $11$ epochs.
+This project is a combination of a novel training method named Spatio-Temporal Backpropagation (STBP) and a Batch Normalization technique called threshold-dependent Batch Normalization (tdBN) together to make the training for Deep Spiking Neural Networks possible. The applied architecture is inspired by the $18$-layer ResNet and people sometimes call that Deep Spiking Residual Network (DSRN). Instead of using the standard Batch Normalization and normal Basic Blocks in ResNet, it uses tdBN and the customized Basic Block. A new spiking activation function with gradient approximation are also designed to describe brain-like behaviors and to make intermediate derivatives differentiable. With the usage of tdBN, the inappropriate firing rates from each neuron and vanishing or exploding gradients are addressed. Moreover, it also helps to reduce the [internal covariate shift](https://arxiv.org/abs/1502.03167) during training process, thus balancing the threshold and pre-synaptic inputs. A magnificient accuracy with [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset $(98.67\%)$ is recorded after just $11$ epochs.
 
 ## Installation
 * Create an environment using `conda create --name <env> --file requirements.txt`
@@ -16,8 +16,8 @@ This project is a combination of a novel training method named Spatio-Temporal B
 
 
 ## Network Architecture
-* Customized Basic Block
-    * Acording to the idea from the paper $3$, we're going to use this customized Basic Block (on the right in the image below) when training Deep Spiking Neural Networks
+* Building a customized Basic Block
+    * Acording to the idea from the paper $3$, we're going to use this customized Basic Block (on the right in the image below) when training Deep Spiking Neural Networks.
 
 <p align="center"><img src = "images/basic_block_architecture.png" width = 70%></p>
 <p align="center"><i>The customized Basic Block for SNNs.</i></p>
