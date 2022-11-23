@@ -1,5 +1,5 @@
 # A Direct Training Method for Deep Spiking Neural Networks
-This project is a combination of a novel training method named Spatio-Temporal Backpropagation (STBP) and a Batch Normalization technique called threshold-dependent Batch Normalization (tdBN) together to make the training for Deep Spiking Neural Networks possible. The applied architecture is inspired by the $18$-layer ResNet and people sometimes call that Deep Spiking Residual Network (DSRN). Instead of using the standard Batch Normalization and normal Basic Blocks in ResNet, it uses tdBN and the customized Basic Block. A new spiking activation function with gradient approximation are also designed to describe brain-like behaviors and to make intermediate derivatives differentiable. With the usage of tdBN, the inappropriate firing rates from each neuron and vanishing or exploding gradients are addressed. Moreover, it also helps to reduce the [internal covariate shift](https://arxiv.org/abs/1502.03167) during training process, thus balancing the threshold and pre-synaptic inputs. A magnificient accuracy with [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset `98.67%` is recorded after just $11$ epochs.
+This project is a combination of a novel training method named Spatio-Temporal Backpropagation (STBP) and a Batch Normalization technique called threshold-dependent Batch Normalization (tdBN) together to make the training for Deep Spiking Neural Networks possible. The applied architecture is inspired by the $18$-layer ResNet and people sometimes call that Deep Spiking Residual Network (DSRN). Instead of using the standard Batch Normalization and normal Basic Blocks in ResNet, it uses tdBN and the customized Basic Block. A new spiking activation function with gradient approximation are also designed to describe brain-like behaviors and to make intermediate derivatives differentiable during backpropagation. With the usage of tdBN, the inappropriate firing rates from each neuron and vanishing or exploding gradients are addressed. Moreover, it also helps to reduce the [internal covariate shift](https://arxiv.org/abs/1502.03167) during training process, thus balancing the threshold and pre-synaptic inputs. A magnificient accuracy with [MNIST](https://en.wikipedia.org/wiki/MNIST_database) dataset `98.67%` is recorded after just $11$ epochs.
 
 ## Installation
 * Create an environment using `conda create --name <env> --file requirements.txt`
@@ -83,7 +83,7 @@ The average pool layer takes an average over channels axis, see the image below:
 
 ## Experiments
 * In this project, I just show an example experiment of training the customized $19$-layer ResNet (shown via tensorboard). With the hyperparameters set up in file `helper_layers.py` and by setting `epochs=11` and using Learning Rate Adjustment strategy (i.e. reducing the learning rate after an amount of epochs, in this case I picked $10$ for that amount). The training time is around $2$ hours.
-* If you haven't installed `tensorboard`, type this command `pip install -U tensorboard` to install it. To run tensorboard, type this command in the terminal: `tensorboard --logdir runs/<folder including events file>`. By default, tensorboard will automatically write event files to a directory named `runs` in the current working directory.
+* If you haven't installed `tensorboard`, type this command `pip install -U tensorboard` to install it. To run tensorboard, type this command in the terminal: `tensorboard --logdir runs/<folder including events file>`. By default, TensorBoard will automatically write event files to a directory named `runs` in the current working directory.
 
 <p align="center"><img src = "images/tensorboard_gui.png" width = 100%></p>
 <p align="center"><i>TensorBoard GUI.</i></p>
@@ -93,7 +93,7 @@ The average pool layer takes an average over channels axis, see the image below:
 <p align="center"><img src = "images/training_results_11_epochs.png" width = 100%></p>
 <p align="center"><i>Test loss and test accuracy at the end of the training process.</i></p>
 
-* Here is the firing rates when inferring a test sample. Run command `python test.py` to see the plot: 
+* Here is the firing rates when inferring a test sample. Run command `python compute_firing_rates.py` to see the plot: 
 
 <p align="center"><img src = "images/firing_rates.png" width = 70%></p>
 <p align="center"><i>Average firing rates over neuron of each layer.</i></p>
@@ -103,7 +103,7 @@ The average pool layer takes an average over channels axis, see the image below:
     * In layer $17$ (a fully connected layer), the average firing rate is the highest.
 
 ## Notes
-* The model performance is extremely sentitive to $V_{th}$ and `aa` (the width parameter of the rectangular curve) so you need to take a careful choice of these $2$ hyperparameters.
+* The model performance is extremely sentitive to $V_{th}$ and `aa` (the width parameter of the rectangular curve) so you need to make a careful choice of these $2$ hyperparameters.
 
 
 
