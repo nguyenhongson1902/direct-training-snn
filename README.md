@@ -23,7 +23,8 @@ This project is a combination of a novel training method named Spatio-Temporal B
 <p align="center"><i>The customized Basic Block for SNNs.</i></p>
 
 * tdBN normalizes the pre-activations to $N(0, V^{2}_{th})$, see more in paper $3$
-* Approximation derivative is a rectangular function $h(u)=\frac{1}{2a}sign(|u|< a)$
+* Approximation derivative is a rectangular function 
+$$h(u)=\frac{1}{2a}sign(|u|< a)$$
 * Deep Spiking Neural Network Structure
 <div style="margin-left: auto;
             margin-right: auto;
